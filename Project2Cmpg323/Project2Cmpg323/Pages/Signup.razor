@@ -1,0 +1,153 @@
+﻿@page "/signup"
+
+@layout Signup_Layout
+
+@using DataLibrary
+@using Project2Cmpg323.Models
+@using Microsoft.Extensions.Configuration
+
+@inject IDataAccess _data
+@inject IConfiguration _config
+
+@inject NavigationManager UriHelper
+
+<style>
+    .div {
+        margin: auto;
+        width: auto;
+    }
+
+    label {
+        display: inline-block;
+        width: 90px;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .backgroundimg {
+        background-image: url(https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+        width: 1880px;
+        height: 880px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .heading {
+        font-size: 145px;
+        font-weight: bold;
+    }
+
+    .container {
+        background-color: aliceblue;
+        width: 25%;
+        height: 85%;
+        text-align: center;
+    }
+</style>
+
+<div class="div">
+    <div class="backgroundimg" align="center">
+        <div id="SignupDiv">
+            <h3 class="heading">Signup</h3>
+            <br />
+            <h5>Please enter your details below!</h5>
+            <br />
+            <label>First Name</label>
+            <input type="text" id="firstname" @bind-value="users.Users_Fname" placeholder="Enter First Name" />
+            <br />
+            <br />
+            <label>Last Name</label>
+            <input type="text" id="lastname" @bind-value="users.Users_Lname" placeholder="Enter Last Name">
+            <br />
+            <br />
+            <label>Username</label>
+            <input type="text" id="username" @bind-value="users.Users_Username" placeholder="Enter Username">
+            <br />
+            <br />
+            <label>Email</label>
+            <input type="text" id="email" @bind-value="users.Users_Email" placeholder="Enter Email Address">
+            <br />
+            <br />
+            <label>Phone Number</label>
+            <input type="number" id="phonenumber" @bind-value="users.Users_PhoneNumber" placeholder="Enter Phone Number">
+            <br />
+            <br />
+            <label>Date of Birth</label>
+            <input type="text" id="dateofbirth" @bind-value="users.Users_DOB" placeholder="YYYY/MM/DD">
+            <br />
+            <br />
+            <label>Password</label>
+            <input type="password" id="password" @bind-value="users.Users_Password" placeholder="Enter Password">
+            <br />
+            <br />
+            <label>Confirm Password</label>
+            <input type="password" id="confirmpassword" @bind="ConfirmPassword" placeholder="Enter Password Again">
+            <br />
+
+            <p style="color:@Color"><b>@text</b></p>
+
+            <button type="submit" class="btn-primary" @onclick="Submit">Submit</button>
+            <br />
+        </div>
+    </div>
+
+</div>
+
+@code {
+
+    UsersModels users = new UsersModels();
+
+    private string Users_Fname { get; set; }
+    private string Users_Lname { get; set; }
+    private string Users_Username { get; set; }
+    private string Users_Email { get; set; }
+    private string Users_PhoneNumber { get; set; }
+    private string Users_DOB { get; set; }
+    private string ConfirmPassword { get; set; }
+    private string Users_Password { get; set; }
+
+
+
+    string Color = "black";
+    string text = "";
+
+
+
+
+    private async Task Submit()
+    {
+
+
+        if (users.Users_Password == ConfirmPassword)
+        {
+            if (users.Users_Fname != "" && users.Users_Lname != "" && users.Users_Username != "" && users.Users_Email != "" && users.Users_DOB != null && users.Users_Password != null && ConfirmPassword != null)
+            {
+
+                string sql = "INSERT INTO users (Users_Fname, Users_Lname, Users_Username, Users_Email, Users_PhoneNumber, Users_DOB, Users_Password) values (@FirstName, @LastName, @Username, @Email, @PhoneNumber, @DateOfBirth, @Password)";
+                await _data.SaveData(sql, new { FirstName = users.Users_Fname, LastName = users.Users_Lname, Username = users.Users_Username, Email = users.Users_Email, PhoneNumber = users.Users_PhoneNumber, DateOfBirth = users.Users_DOB, Password = users.Users_Password }, _config.GetConnectionString("default"));
+
+                Color = "green";
+                text = "Welcome Guest!";
+
+                UriHelper.NavigateTo("/");
+
+            }
+            else
+            {
+                Color = "red";
+                text = "Please fill in all the fields!";
+
+            }
+
+        }
+        else
+        {
+            Color = "red";
+            text = "Passwords dont match, retry!";
+
+        }
+
+    }
+}
+

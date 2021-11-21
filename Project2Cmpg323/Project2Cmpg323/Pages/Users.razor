@@ -1,0 +1,61 @@
+﻿@page "/users"
+
+@using DataLibrary
+@using Project2Cmpg323.Models
+@using Microsoft.Extensions.Configuration
+
+@inject IDataAccess _data
+@inject IConfiguration _config
+
+<style>
+    .div {
+        margin: auto;
+        width: auto;
+    }
+
+    .container {
+        background-color: aliceblue;
+        width: 20%;
+        height: 55%;
+        text-align: center;
+    }
+</style>
+
+<div class="div">
+    <h3>Users</h3>
+    <div class="container">
+        <h4>hello</h4>
+    </div>
+</div>
+
+@if (users == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="div">
+        <h3>Users</h3>
+        <div class="container">
+            <h4>hello</h4>
+        </div>
+    </div>
+    @foreach (var u in users)
+    {
+
+        <p>
+            @u.Users_Fname @u.Users_Username
+        </p>
+
+    }
+}
+@code {
+
+    List<UsersModels> users;
+
+    protected override async Task OnInitializedAsync()
+    {
+        string sql = "SELECT Users_Fname, Users_Username FROM users";
+        users = await _data.LoadData<UsersModels, dynamic>(sql, new { }, _config.GetConnectionString("default"));
+    }
+}

@@ -1,0 +1,66 @@
+﻿@page "/images"
+
+@using Project2Cmpg323.Data;
+@using System.IO;
+@using DataLibrary
+@using System.Text
+@using Microsoft.Extensions.Configuration
+
+
+
+
+
+@inject IDataAccess _data
+@inject IConfiguration _config
+
+
+
+<div class="ImagesUploadDiv">
+    <h3>Images</h3>
+    <hr />
+    <label>Welcom, UName</label>
+    <img src="Image" style="width: 250px; height: 250px" /> <br />
+    <InputFile OnChange="HandleFile" ></InputFile>
+    <button type="submit" class="btn-primary">Insert</button>
+    <br />
+
+</div>
+
+
+
+@code {
+
+    ModelImage imgmodel = new ModelImage();
+
+    List<ModelImage> pictures;
+
+    private string UName = Login.Name;
+
+    public string Image { get; set; }
+    public string Name { get; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        string sql2 = "select * from images";
+        pictures = await _data.LoadData<ModelImage, dynamic>(sql2, new { }, _config.GetConnectionString("default"));
+
+    }
+
+
+
+    public async Task HandleFile(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+
+        var buffer = new byte[file.Size];
+
+        await file.OpenReadStream(1512000).ReadAsync(buffer);
+
+        Image = $"data:image/png;base64,{Convert.ToBase64String(buffer)}";
+
+
+        string sql = "insert into images(Images_Name,Images_Path,Images_Username) values (@ImageName,@ImagePath,@ImageUsername); ";
+        await _data.SaveData(sql, new { ImageName = file.Name, ImagePath = imgmodel.Images_Path, ImageUsername = imgmodel.Images_Username }, _config.GetConnectionString("default"));
+    }
+
+}

@@ -1,0 +1,10 @@
+C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\DataLibrary\bin\Debug\netstandard2.0\DataLibrary.deps.json
+C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\DataLibrary\bin\Debug\netstandard2.0\DataLibrary.dll
+C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\DataLibrary\bin\Debug\netstandard2.0\DataLibrary.pdb
+C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\DataLibrary\obj\Debug\netstandard2.0\DataLibrary.csproj.AssemblyReference.cache
+C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\DataLibrary\obj\Debug\netstandard2.0\DataLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\DataLibrary\obj\Debug\netstandard2.0\DataLibrary.AssemblyInfoInputs.cache
+C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\DataLibrary\obj\Debug\netstandard2.0\DataLibrary.AssemblyInfo.cs
+C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\DataLibrary\obj\Debug\netstandard2.0\DataLibrary.csproj.CoreCompileInputs.cache
+C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\DataLibrary\obj\Debug\netstandard2.0\DataLibrary.dll
+C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\DataLibrary\obj\Debug\netstandard2.0\DataLibrary.pdb
