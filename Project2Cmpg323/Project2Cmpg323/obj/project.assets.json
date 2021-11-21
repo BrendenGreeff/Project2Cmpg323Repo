@@ -6903,11 +6903,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\brend\\Downloads\\UniversityFinalSem2\\CMPG 323\\Project2\\SADigitalMarketingWebbAppRepo\\Project2Cmpg323\\Project2Cmpg323\\Project2Cmpg323.csproj",
+      "projectUniqueName": "C:\\Users\\brend\\Downloads\\UniversityFinalSem2\\CMPG 323\\Project2\\Project2Cmpg323Repo\\Project2Cmpg323Repo\\Project2Cmpg323\\Project2Cmpg323\\Project2Cmpg323.csproj",
       "projectName": "Project2Cmpg323",
-      "projectPath": "C:\\Users\\brend\\Downloads\\UniversityFinalSem2\\CMPG 323\\Project2\\SADigitalMarketingWebbAppRepo\\Project2Cmpg323\\Project2Cmpg323\\Project2Cmpg323.csproj",
+      "projectPath": "C:\\Users\\brend\\Downloads\\UniversityFinalSem2\\CMPG 323\\Project2\\Project2Cmpg323Repo\\Project2Cmpg323Repo\\Project2Cmpg323\\Project2Cmpg323\\Project2Cmpg323.csproj",
       "packagesPath": "C:\\Users\\brend\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\brend\\Downloads\\UniversityFinalSem2\\CMPG 323\\Project2\\SADigitalMarketingWebbAppRepo\\Project2Cmpg323\\Project2Cmpg323\\obj\\",
+      "outputPath": "C:\\Users\\brend\\Downloads\\UniversityFinalSem2\\CMPG 323\\Project2\\Project2Cmpg323Repo\\Project2Cmpg323Repo\\Project2Cmpg323\\Project2Cmpg323\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6928,8 +6928,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\brend\\Downloads\\UniversityFinalSem2\\CMPG 323\\Project2\\SADigitalMarketingWebbAppRepo\\Project2Cmpg323\\DataLibrary\\DataLibrary.csproj": {
-              "projectPath": "C:\\Users\\brend\\Downloads\\UniversityFinalSem2\\CMPG 323\\Project2\\SADigitalMarketingWebbAppRepo\\Project2Cmpg323\\DataLibrary\\DataLibrary.csproj"
+            "C:\\Users\\brend\\Downloads\\UniversityFinalSem2\\CMPG 323\\Project2\\Project2Cmpg323Repo\\Project2Cmpg323Repo\\Project2Cmpg323\\DataLibrary\\DataLibrary.csproj": {
+              "projectPath": "C:\\Users\\brend\\Downloads\\UniversityFinalSem2\\CMPG 323\\Project2\\Project2Cmpg323Repo\\Project2Cmpg323Repo\\Project2Cmpg323\\DataLibrary\\DataLibrary.csproj"
             }
           }
         }

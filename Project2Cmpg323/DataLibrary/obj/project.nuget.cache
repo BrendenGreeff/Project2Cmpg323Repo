@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "psA7pX407aMW1VXEGZvPEKmhViO9ZcxEOhrh3gBnJmd5Eh/WzT7DlqM6GmUffo1ShbLbyyQIThrZ68zIGuP9og==",
+  "dgSpecHash": "IofKMlpRnraDy0kmj15Sjc3n72IYBFD1sp8Yq2N/9XFmEHHXelWtGfr77d0HZ+kcronhw+QKcBNIrm8Fye+hww==",
   "success": true,
-  "projectFilePath": "C:\\Users\\brend\\Downloads\\UniversityFinalSem2\\CMPG 323\\Project2\\SADigitalMarketingWebbAppRepo\\Project2Cmpg323\\DataLibrary\\DataLibrary.csproj",
+  "projectFilePath": "C:\\Users\\brend\\Downloads\\UniversityFinalSem2\\CMPG 323\\Project2\\Project2Cmpg323Repo\\Project2Cmpg323Repo\\Project2Cmpg323\\DataLibrary\\DataLibrary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\brend\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\brend\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",

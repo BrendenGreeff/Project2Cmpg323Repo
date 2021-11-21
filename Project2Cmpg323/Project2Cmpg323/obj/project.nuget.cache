@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aTib0cgeU5G4hm4Fo3rE+YN88+ZA/ACBMaGJyAlIfkKHjsooOFyhbnLnNXF8q6UmLGfbAEPMOHjB9Mor6lW7Bg==",
+  "dgSpecHash": "juvzAWSZp5QdnxWAvgaEvWtqrQgJ8zkWI8cfECJ9FiKuKFWaCdO86pRMQXcAb27TDTJbccYGHEa0UoSYPqPQ9w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\brend\\Downloads\\UniversityFinalSem2\\CMPG 323\\Project2\\SADigitalMarketingWebbAppRepo\\Project2Cmpg323\\Project2Cmpg323\\Project2Cmpg323.csproj",
+  "projectFilePath": "C:\\Users\\brend\\Downloads\\UniversityFinalSem2\\CMPG 323\\Project2\\Project2Cmpg323Repo\\Project2Cmpg323Repo\\Project2Cmpg323\\Project2Cmpg323\\Project2Cmpg323.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\brend\\.nuget\\packages\\blazorinputfile\\0.2.0\\blazorinputfile.0.2.0.nupkg.sha512",
     "C:\\Users\\brend\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
