@@ -83,42 +83,42 @@ using Project2Cmpg323.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
+#line 3 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\TestUpload.razor"
 using System.IO;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
+#line 4 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\TestUpload.razor"
 using DataLibrary;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
+#line 5 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\TestUpload.razor"
 using System.Text;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
+#line 6 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\TestUpload.razor"
 using Microsoft.Extensions.Configuration;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
+#line 7 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\TestUpload.razor"
 using Project2Cmpg323.Models;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/images")]
-    public partial class Images : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/test")]
+    public partial class TestUpload : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -126,21 +126,72 @@ using Project2Cmpg323.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 30 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
-       
+#line 75 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\TestUpload.razor"
+      
+    string ImageUrl = "";
+    bool Uploading = false;
+    List<string> FileUrls = new List<string>();
 
     ImagesModels imgmodel = new ImagesModels();
-
     List<ImagesModels> pictures;
-
     public string Image { get; set; }
     public string Images_Name { get; set; }
 
-    protected override async Task OnInitializedAsync()
-    {
-        string sql2 = "select * from images";
-        pictures = await _data.LoadData<ImagesModels, dynamic>(sql2, new { }, _config.GetConnectionString("default"));
+    //Support for drag/drop
 
+    string dropClass = string.Empty;
+
+    void HandleDragEnter()
+    {
+        dropClass = "dropAreaDrug";
+    }
+
+    void HandleDragLeave()
+    {
+        dropClass = string.Empty;
+    }
+
+    async Task OnInputFileChange(InputFileChangeEventArgs args)
+    {
+        dropClass = string.Empty;
+
+        try
+        {
+            //disable the upload pane
+            Uploading = true;
+            await InvokeAsync(StateHasChanged);
+
+            //Resize to no more than 400x400
+            var format = "image/png";
+            var resizeImageFile = await args.File.RequestImageFileAsync(format, 400, 400);
+
+            //Read resized file into buffer
+            var buffer = new byte[resizeImageFile.Size];
+            await resizeImageFile.OpenReadStream().ReadAsync(buffer);
+
+            //Get new filename with a bit of entropy
+            string justFileName = Path.GetFileNameWithoutExtension(args.File.Name);
+            string newFileNameWithoutPath = $"{justFileName}-{DateTime.Now.Ticks.ToString()}.png";
+            string filename = $"{Environment.CurrentDirectory}\\files\\{newFileNameWithoutPath}";
+
+            //Write the file
+            File.WriteAllBytes(filename, buffer);
+            ImageUrl = $"files/{newFileNameWithoutPath}";
+
+            await ListFiles();
+
+            var file = args.File;
+
+            var buf = new byte[file.Size];
+
+            await file.OpenReadStream(1512000).ReadAsync(buffer);
+
+            Image = $"data:image/png;base64,{Convert.ToBase64String(buffer)}";
+
+        }
+        catch
+        {
+        }
     }
 
     private async Task HandelFileSelected(InputFileChangeEventArgs fileChangeEvent)
@@ -154,11 +205,35 @@ using Project2Cmpg323.Models;
         Image = $"data:image/png;base64,{Convert.ToBase64String(buffer)}";
     }
 
+    async Task ListFiles()
+    {
+        FileUrls.Clear();
+        var files = Directory.GetFiles(Environment.CurrentDirectory + "\\Files", "*.*");
+        foreach (var filename in files)
+        {
+            var file = Path.GetFileName(filename);
+            string url = $"files/{file}";
+            FileUrls.Add(url);
+        }
+        await InvokeAsync(StateHasChanged);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ListFiles();
+        string sql2 = "select * from images";
+        pictures = await _data.LoadData<ImagesModels, dynamic>(sql2, new { }, _config.GetConnectionString("default"));
+    }
+
     private async Task Submit()
     {
+
         string sql = "insert into images(Images_Name,Images_Path) values (@ImageName,@ImagePath); ";
         await _data.SaveData(sql, new { ImageName = imgmodel.Images_Name, ImagePath = Image }, _config.GetConnectionString("default"));
+
+
     }
+
 
 
 #line default

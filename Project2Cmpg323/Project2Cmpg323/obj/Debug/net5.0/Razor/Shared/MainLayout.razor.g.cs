@@ -121,16 +121,17 @@ using Microsoft.Extensions.Configuration;
             __builder.OpenElement(11, "div");
             __builder.AddAttribute(12, "class", "top-row px-4 auth");
             __builder.AddAttribute(13, "b-kjsgvit4mo");
-            __builder.OpenComponent<Project2Cmpg323.Shared.LoginDisplay>(14);
-            __builder.CloseComponent();
-            __builder.AddMarkupContent(15, "\r\n            ");
-            __builder.AddMarkupContent(16, "<a href=\"https://docs.microsoft.com/aspnet/\" target=\"_blank\" b-kjsgvit4mo>About</a>");
+            __builder.OpenElement(14, "LoginDisplay");
+            __builder.AddAttribute(15, "b-kjsgvit4mo");
             __builder.CloseElement();
-            __builder.AddMarkupContent(17, "\r\n\r\n        ");
-            __builder.OpenElement(18, "div");
-            __builder.AddAttribute(19, "class", "content px-4");
-            __builder.AddAttribute(20, "b-kjsgvit4mo");
-            __builder.AddContent(21, 
+            __builder.AddMarkupContent(16, "\r\n            ");
+            __builder.AddMarkupContent(17, "<a href=\"https://docs.microsoft.com/aspnet/\" target=\"_blank\" b-kjsgvit4mo>About</a>");
+            __builder.CloseElement();
+            __builder.AddMarkupContent(18, "\r\n\r\n        ");
+            __builder.OpenElement(19, "div");
+            __builder.AddAttribute(20, "class", "content px-4");
+            __builder.AddAttribute(21, "b-kjsgvit4mo");
+            __builder.AddContent(22, 
 #nullable restore
 #line 15 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Shared\MainLayout.razor"
              Body

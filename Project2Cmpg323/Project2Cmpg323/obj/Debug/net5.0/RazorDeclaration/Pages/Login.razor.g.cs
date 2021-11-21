@@ -120,7 +120,7 @@ using Microsoft.Extensions.Configuration;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 82 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Login.razor"
+#line 83 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Login.razor"
       
 
     UsersModels users = new UsersModels();

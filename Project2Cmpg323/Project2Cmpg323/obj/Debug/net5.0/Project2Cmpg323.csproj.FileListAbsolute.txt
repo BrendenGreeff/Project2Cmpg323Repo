@@ -215,7 +215,6 @@ C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Re
 C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\RazorDeclaration\Pages\Login.razor.g.cs
 C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\RazorDeclaration\Pages\Signup.razor.g.cs
 C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\RazorDeclaration\Pages\Users.razor.g.cs
-C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\RazorDeclaration\Shared\LoginDisplay.razor.g.cs
 C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\RazorDeclaration\Shared\Login_Layout.razor.g.cs
 C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\RazorDeclaration\Shared\Signup_Layout.razor.g.cs
 C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\RazorDeclaration\Shared\SurveyPrompt.razor.g.cs
@@ -235,7 +234,6 @@ C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Re
 C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\Razor\Pages\Login.razor.g.cs
 C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\Razor\Pages\Signup.razor.g.cs
 C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\Razor\Pages\Users.razor.g.cs
-C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\Razor\Shared\LoginDisplay.razor.g.cs
 C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\Razor\Shared\Login_Layout.razor.g.cs
 C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\Razor\Shared\Signup_Layout.razor.g.cs
 C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\Razor\Shared\SurveyPrompt.razor.g.cs
@@ -262,3 +260,5 @@ C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Re
 C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\ref\Project2Cmpg323.dll
 C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\Project2Cmpg323.pdb
 C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\Project2Cmpg323.genruntimeconfig.cache
+C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\RazorDeclaration\Pages\TestUpload.razor.g.cs
+C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\obj\Debug\net5.0\Razor\Pages\TestUpload.razor.g.cs

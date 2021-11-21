@@ -19,7 +19,7 @@
     <br />
     <input type="text" id="imgName" @bind-value="imgmodel.Images_Name" placeholder="Enter Image Name" />\
     <br />
-    <InputFile OnChange="@HandelFileSelected"></InputFile>
+    <InputFile OnChange="HandelFileSelected"></InputFile>
     <br />
     <button type="submit" class="btn-primary" @onclick="Submit">Insert</button>
     <br />
@@ -57,7 +57,6 @@
     private async Task Submit()
     {
         string sql = "insert into images(Images_Name,Images_Path) values (@ImageName,@ImagePath); ";
-        string sql2 = "";
         await _data.SaveData(sql, new { ImageName = imgmodel.Images_Name, ImagePath = Image }, _config.GetConnectionString("default"));
     }
 
