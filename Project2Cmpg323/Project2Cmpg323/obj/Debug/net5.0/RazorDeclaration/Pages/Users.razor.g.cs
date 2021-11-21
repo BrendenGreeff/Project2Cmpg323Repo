@@ -126,7 +126,7 @@ using Microsoft.Extensions.Configuration;
 
     protected override async Task OnInitializedAsync()
     {
-        string sql = "SELECT Users_Fname, Users_Username FROM users";
+        string sql = "SELECT Users_Fname, Users_Lname, Users_Username, Users_Email, Users_PhoneNumber, Users_DOB FROM users";
         users = await _data.LoadData<UsersModels, dynamic>(sql, new { }, _config.GetConnectionString("default"));
     }
 

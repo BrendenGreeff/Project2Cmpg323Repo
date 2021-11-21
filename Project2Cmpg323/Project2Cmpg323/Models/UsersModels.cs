@@ -15,5 +15,6 @@ namespace Project2Cmpg323.Models
         public string Users_PhoneNumber { get; set; }
         public string Users_DOB { get; set; }
         public string Users_Password { get; set; }
+        public string Users_ProfileImg { get; set; }
     }
 }

@@ -120,7 +120,7 @@ using Microsoft.Extensions.Configuration;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 83 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Login.razor"
+#line 82 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Login.razor"
       
 
     UsersModels users = new UsersModels();
@@ -136,13 +136,13 @@ using Microsoft.Extensions.Configuration;
     private string ConfirmPassword { get; set; }
     private string Users_Password { get; set; }
     public static string Name;
-
-    string Color = "black";
+    public static string ProfileImg;
+            string Color = "black";
     string text = "";
 
     protected override async Task OnInitializedAsync()
     {
-        string sql = "SELECT Users_Username, Users_Password FROM users";
+        string sql = "SELECT * FROM users";
         user = await _data.LoadData<UsersModels, dynamic>(sql, new { }, _config.GetConnectionString("default"));
     }
 
@@ -156,6 +156,8 @@ using Microsoft.Extensions.Configuration;
                 text = "Welcome Guest!";
 
                 Name = users.Users_Username;
+
+                ProfileImg = u.Users_ProfileImg;
 
                 UriHelper.NavigateTo("/index");
 

@@ -44,7 +44,7 @@ else
     {
 
         <p>
-            @u.Users_Fname @u.Users_Username
+            @u.Users_Fname @u.Users_Lname @u.Users_Username @u.Users_Email @u.Users_PhoneNumber @u.Users_DOB
         </p>
 
     }
@@ -55,7 +55,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        string sql = "SELECT Users_Fname, Users_Username FROM users";
+        string sql = "SELECT Users_Fname, Users_Lname, Users_Username, Users_Email, Users_PhoneNumber, Users_DOB FROM users";
         users = await _data.LoadData<UsersModels, dynamic>(sql, new { }, _config.GetConnectionString("default"));
     }
 }

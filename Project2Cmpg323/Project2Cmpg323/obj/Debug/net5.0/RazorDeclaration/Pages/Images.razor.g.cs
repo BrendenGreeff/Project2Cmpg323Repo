@@ -126,21 +126,73 @@ using Project2Cmpg323.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 30 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
-       
+#line 74 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
+      
+    string ImageUrl = "";
+    bool Uploading = false;
+    List<string> FileUrls = new List<string>();
 
     ImagesModels imgmodel = new ImagesModels();
-
     List<ImagesModels> pictures;
-
+    public string Username = Login.Name;
     public string Image { get; set; }
-    public string Images_Name { get; set; }
+    public string Images_Name { get; }
 
-    protected override async Task OnInitializedAsync()
+    //Support for drag/drop
+
+    string dropClass = string.Empty;
+
+    void HandleDragEnter()
     {
-        string sql2 = "select * from images";
-        pictures = await _data.LoadData<ImagesModels, dynamic>(sql2, new { }, _config.GetConnectionString("default"));
+        dropClass = "dropAreaDrug";
+    }
 
+    void HandleDragLeave()
+    {
+        dropClass = string.Empty;
+    }
+
+    async Task OnInputFileChange(InputFileChangeEventArgs args)
+    {
+        dropClass = string.Empty;
+
+        try
+        {
+            //disable the upload pane
+            Uploading = true;
+            await InvokeAsync(StateHasChanged);
+
+            //Resize to no more than 400x400
+            var format = "image/png";
+            var resizeImageFile = await args.File.RequestImageFileAsync(format, 400, 400);
+
+            //Read resized file into buffer
+            var buffer = new byte[resizeImageFile.Size];
+            await resizeImageFile.OpenReadStream().ReadAsync(buffer);
+
+            //Get new filename with a bit of entropy
+            string justFileName = Path.GetFileNameWithoutExtension(args.File.Name);
+            string newFileNameWithoutPath = $"{justFileName}-{DateTime.Now.Ticks.ToString()}.png";
+            string filename = $"{Environment.CurrentDirectory}\\files\\{newFileNameWithoutPath}";
+
+            //Write the file
+            File.WriteAllBytes(filename, buffer);
+            ImageUrl = $"files/{newFileNameWithoutPath}";
+
+            await ListFiles();
+
+            var file = args.File;
+
+            var buf = new byte[file.Size];
+
+            await file.OpenReadStream(1512000).ReadAsync(buffer);
+
+            Image = $"data:image/png;base64,{Convert.ToBase64String(buffer)}";
+
+        }
+        catch
+        {
+        }
     }
 
     private async Task HandelFileSelected(InputFileChangeEventArgs fileChangeEvent)
@@ -154,11 +206,28 @@ using Project2Cmpg323.Models;
         Image = $"data:image/png;base64,{Convert.ToBase64String(buffer)}";
     }
 
+    async Task ListFiles()
+    {
+        FileUrls.Clear();
+        var files = Directory.GetFiles(Environment.CurrentDirectory + "\\Files", "*.*");
+        foreach (var filename in files)
+        {
+            var file = Path.GetFileName(filename);
+            string url = $"files/{file}";
+            FileUrls.Add(url);
+        }
+        await InvokeAsync(StateHasChanged);
+    }
+
     private async Task Submit()
     {
-        string sql = "insert into images(Images_Name,Images_Path) values (@ImageName,@ImagePath); ";
-        await _data.SaveData(sql, new { ImageName = imgmodel.Images_Name, ImagePath = Image }, _config.GetConnectionString("default"));
+
+        string sql = "insert into images(Images_Name,Images_Username, Images_Path) values (@ImageName, @ImagesUsername, @ImagePath); ";
+        await _data.SaveData(sql, new { ImageName = imgmodel.Images_Name, ImagesUsername = Username, ImagePath = Image }, _config.GetConnectionString("default"));
+
+
     }
+
 
 
 #line default
