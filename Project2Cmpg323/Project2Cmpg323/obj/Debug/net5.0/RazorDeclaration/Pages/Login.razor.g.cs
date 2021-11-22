@@ -165,7 +165,7 @@ using Microsoft.Extensions.Configuration;
             else
             {
                 Color = "red";
-                text = "User Password Wrong!";
+                text = "User Password Or Username Is Wrong, Please Fill In The Correct Fields!";
 
 
             }

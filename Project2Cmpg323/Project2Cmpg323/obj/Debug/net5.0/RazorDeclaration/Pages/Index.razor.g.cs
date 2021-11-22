@@ -126,7 +126,7 @@ using Project2Cmpg323.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 56 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Index.razor"
+#line 64 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Index.razor"
       
 
 
@@ -190,25 +190,6 @@ using Project2Cmpg323.Models;
 
 
     }
-
-    //Service to fetch images
-    public List<UsersModels> DisplayImages()
-    {
-        return users.ToList();
-    }
-
-    string convertImageToDisplay(byte[] img)
-    {
-        if (img != null)
-        {
-            var base64 = Convert.ToBase64String(img);
-            var fs = string.Format("data: image/jpeg; base64,{0}", base64);
-            return fs;
-        }
-        return "";
-    }
-
-
 
 #line default
 #line hidden

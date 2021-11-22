@@ -11,6 +11,15 @@
     .div {
         margin: auto;
         width: auto;
+        align-content: center;
+        align-items: center;
+        text-align: center;
+        align-self: auto;
+    }
+    .background {
+        background-color: lightblue;
+        width: 1650px;
+        height: 880px;
     }
 
     .container {
@@ -22,33 +31,27 @@
 </style>
 
 <div class="div">
-    <h3>Users</h3>
-    <div class="container">
-        <h4>hello</h4>
+    <div class="background">
+        <h3>Users</h3>
+        @if (users == null)
+        {
+            <p><em>Loading...</em></p>
+        }
+        else
+        {
+            @foreach (var u in users)
+            {
+
+                <p>
+                    @u.Users_Fname @u.Users_Lname @u.Users_Username @u.Users_Email @u.Users_PhoneNumber @u.Users_DOB
+                </p>
+
+            }
+        }
     </div>
 </div>
 
-@if (users == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <div class="div">
-        <h3>Users</h3>
-        <div class="container">
-            <h4>hello</h4>
-        </div>
-    </div>
-    @foreach (var u in users)
-    {
 
-        <p>
-            @u.Users_Fname @u.Users_Lname @u.Users_Username @u.Users_Email @u.Users_PhoneNumber @u.Users_DOB
-        </p>
-
-    }
-}
 @code {
 
     List<UsersModels> users;

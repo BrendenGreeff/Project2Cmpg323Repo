@@ -1,0 +1,178 @@
+﻿@page "/viewimage"
+
+@using System.IO;
+@using DataLibrary
+@using System.Text
+@using Microsoft.Extensions.Configuration
+@using Project2Cmpg323.Models
+
+@inject IDataAccess _data
+@inject IConfiguration _config
+@inject NavigationManager UriHelper
+
+<style>
+    .div {
+        margin: auto;
+        width: auto;
+        align-content: center;
+        align-items: center;
+        text-align: center;
+        align-self: auto;
+    }
+
+    .background {
+        background-color: lightblue;
+        width: 1650px;
+        height: auto;
+    }
+</style>
+
+<body style="background:none">
+    <div class="div">
+        <div class="background">
+            <div class="m-5 rounded" style="display: grid; width: 1100px; align-content: center; align-items: center; border-left: 20px ">
+                <br />
+                <label>Enter Image Name:</label>
+                <br />
+                <input type="text" id="imgName" @bind-value="imgmodel.Images_Name" placeholder="Enter Image Name" />
+                <br />
+                <InputFile OnChange="@ImageUpload" multiple></InputFile>
+                <br />
+                <button type="submit" class="btn-primary" @onclick="Submit">Insert</button>
+                <br />
+                <br />
+                <input type="text" @bind-value="imgmodel.Images_Name" placeholder="Enter the name of the image to delete" />
+                <br />
+                <button class="btn-primary" @onclick="DeleteImage">Delete</button>
+                <br />
+                @foreach (var I in pictures)
+                {
+                    <div style="display: flex; border: groove; flex:auto">
+                        <img src="@I.Images_Path" style="width: 250px; height: 250px; padding:5px" />
+                        <label>Image Name: @I.Images_Name</label>
+                    </div>
+                }
+                @if (duplicates)
+                {
+                    <label style="color:red">There is already an image with a duplicate name!</label>
+                }
+                @if (nameFieldNull)
+                {
+                    <label style="color:red">Enter the image name to be deleted!</label>
+                }
+                @if (noImage)
+                {
+                    <label style="color:red">Image name is not found or dooes not exist!</label>
+                }
+
+            </div>
+        </div>
+
+    </div>
+</body>
+ 
+@code{
+
+    ImagesModels imgmodel = new ImagesModels();
+    List<ImagesModels> pictures;
+    List<UsersModels> users;
+
+    List<Images> imgDisplayObj;
+
+    public string Username = Login.Name;
+    public string Profileimg = Login.ProfileImg;
+    public string Image { get; set; }
+    public string ImageView { get; set; }
+    public string Images_Name { get; }
+    private static string img;
+    public bool duplicates = false;
+    public bool nameFieldNull = false;
+    public bool noImage = false;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        string sql = "SELECT * FROM images WHERE Images_Username = @username";
+        pictures = await _data.LoadData<ImagesModels, dynamic>(sql, new { username = Username }, _config.GetConnectionString("default"));
+
+    }
+
+    private async Task ImageUpload(InputFileChangeEventArgs args)
+    {
+        var file = args.GetMultipleFiles();
+
+        for (int i = 0; i < file.Count; i++)
+        {
+            var buffer = new byte[file[i].Size];
+            await file[i].OpenReadStream(1512000).ReadAsync(buffer);
+            ImageView = $"data:image/png;base64,{Convert.ToBase64String(buffer)}";
+
+            foreach (var I in pictures)
+            {
+                if (imgmodel.Images_Name == I.Images_Name)
+                {
+                    duplicates = true;
+                    return;
+                }
+                else
+                {
+                }
+            }
+
+            string sql = "INSERT INTO images (Images_Userame, Images_Name, Images_Path) VALUES (@imgUsername, @imgName, @imgPath)";
+            await _data.SaveData(sql, new { imgUsername = Username, imgName = file[i].Name, imgPath = ImageView }, _config.GetConnectionString("default"));
+
+            string sql2 = "SELECT * FROM images WHERE Images_Username = @username";
+            pictures = await _data.LoadData<ImagesModels, dynamic>(sql2, new { username = Username }, _config.GetConnectionString("default"));
+            duplicates = false;
+        }
+
+
+
+    }
+
+    private async Task Submit()
+    {
+
+
+        string sql = "insert into images(Images_Name,Images_Username, Images_Path) values (@ImageName, @ImagesUsername, @ImagePath); ";
+        await _data.SaveData(sql, new { ImageName = imgmodel.Images_Name, ImagesUsername = Username, ImagePath = ImageView }, _config.GetConnectionString("default"));
+        UriHelper.NavigateTo("/viewimage", true);
+    }
+
+    //Delete function
+    public async Task DeleteImage()
+    {
+        foreach (var I in pictures)
+        {
+            if (imgmodel.Images_Name == I.Images_Name)
+            {
+                nameFieldNull = false;
+                string sql = "DELETE FROM images WHERE Images_Name = @imagename";
+                await _data.SaveData(sql, new { imagename = imgmodel.Images_Name }, _config.GetConnectionString("default"));
+
+                string sql2 = "select * from images WHERE Username = @username";
+                pictures = await _data.LoadData<ImagesModels, dynamic>(sql2, new { username = Username }, _config.GetConnectionString("default"));
+                noImage = false;
+                nameFieldNull = false;
+                return;
+
+            }
+            else if (imgmodel.Images_Name == null || imgmodel.Images_Name == "")
+            {
+                noImage = false;
+                nameFieldNull = true;
+                return;
+            }
+            else if (imgmodel.Images_Name != I.Images_Name)
+            {
+                nameFieldNull = false;
+                noImage= true;
+                return;
+            }
+            UriHelper.NavigateTo("/viewimage", true);
+        }
+    }
+}
+

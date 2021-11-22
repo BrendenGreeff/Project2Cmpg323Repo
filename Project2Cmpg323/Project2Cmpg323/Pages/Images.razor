@@ -28,6 +28,12 @@
         align-items: center;
     }
 
+    .background {
+        background-color: lightblue;
+        width: 1650px;
+        height: 880px;
+    }
+
     .heading {
         font-size: 150px;
         font-weight: bold;
@@ -41,34 +47,36 @@
     }
 </style>
 
-<h1>Upload Photo</h1>
 
-@if (ImageUrl != null)
-{
-    <img src="@ImageUrl" />
-    <br />
-    <br />
-}
+
 
 <div class="div">
-    <div class="dropArea @dropClass">
-        Drag and drop photo, or click to select a local file.
-        <InputFile disabled="@Uploading" OnChange="OnInputFileChange" @ondragenter="HandleDragEnter" @ondragleave="HandleDragLeave" multiple></InputFile>
-    </div>
-    <br />
-    <br />
-    <div>
-        <img src="@Image" style="width: 250px; height: 250px" />
+    <div class="background">
+        <h1>Upload Photo</h1>
         <br />
         <br />
+        <div class="dropArea @dropClass">
+            Drag and drop photo, or click to select a local file.
+            <InputFile disabled="@Uploading" OnChange="OnInputFileChange" @ondragenter="HandleDragEnter" @ondragleave="HandleDragLeave" multiple></InputFile>
+        </div>
+        <br />
+        <br />
+        <div class="m-5 rounded" style="display: contents; width: 1100px; align-content: center; align-items: center">
+            <img src="@Image" style="width: 250px; height: 250px" />
+            <br />
+            <br />
 
-        <label>Enter Image Name:</label>
-        <input type="text" id="imgName" @bind-value="imgmodel.Images_Name" placeholder="Enter Image Name" />\
+            <label>Enter Image Name:</label>
+            <input type="text" id="imgName" @bind-value="imgmodel.Images_Name" placeholder="Enter Image Name" />
+            <br />
+            <br />
+            <button type="submit" class="btn-primary" @onclick="Submit">Insert</button>
+            <br />
+            <br />
+        </div>
         <br />
-        <br />
-        <button type="submit" class="btn-primary" @onclick="Submit">Insert</button>
     </div>
-    <br />
+
 </div>
 
 @code{
@@ -125,6 +133,7 @@
 
             await ListFiles();
 
+            //Code to convert image before upload to database
             var file = args.File;
 
             var buf = new byte[file.Size];

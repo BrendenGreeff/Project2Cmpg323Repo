@@ -83,26 +83,41 @@ using Project2Cmpg323.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
+#line 3 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\ViewImages.razor"
 using System.IO;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
-using Project2Cmpg323.Models;
+#line 4 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\ViewImages.razor"
+using DataLibrary;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
+#line 5 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\ViewImages.razor"
+using System.Text;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\ViewImages.razor"
 using Microsoft.Extensions.Configuration;
 
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 7 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\ViewImages.razor"
+using Project2Cmpg323.Models;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/viewimage")]
     public partial class ViewImages : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -110,6 +125,118 @@ using Microsoft.Extensions.Configuration;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 74 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\ViewImages.razor"
+      
+
+    ImagesModels imgmodel = new ImagesModels();
+    List<ImagesModels> pictures;
+    List<UsersModels> users;
+
+    List<Images> imgDisplayObj;
+
+    public string Username = Login.Name;
+    public string Profileimg = Login.ProfileImg;
+    public string Image { get; set; }
+    public string ImageView { get; set; }
+    public string Images_Name { get; }
+    private static string img;
+    public bool duplicates = false;
+    public bool nameFieldNull = false;
+    public bool noImage = false;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        string sql = "SELECT * FROM images WHERE Images_Username = @username";
+        pictures = await _data.LoadData<ImagesModels, dynamic>(sql, new { username = Username }, _config.GetConnectionString("default"));
+
+    }
+
+    private async Task ImageUpload(InputFileChangeEventArgs args)
+    {
+        var file = args.GetMultipleFiles();
+
+        for (int i = 0; i < file.Count; i++)
+        {
+            var buffer = new byte[file[i].Size];
+            await file[i].OpenReadStream(1512000).ReadAsync(buffer);
+            ImageView = $"data:image/png;base64,{Convert.ToBase64String(buffer)}";
+
+            foreach (var I in pictures)
+            {
+                if (imgmodel.Images_Name == I.Images_Name)
+                {
+                    duplicates = true;
+                    return;
+                }
+                else
+                {
+                }
+            }
+
+            string sql = "INSERT INTO images (Images_Userame, Images_Name, Images_Path) VALUES (@imgUsername, @imgName, @imgPath)";
+            await _data.SaveData(sql, new { imgUsername = Username, imgName = file[i].Name, imgPath = ImageView }, _config.GetConnectionString("default"));
+
+            string sql2 = "SELECT * FROM images WHERE Images_Username = @username";
+            pictures = await _data.LoadData<ImagesModels, dynamic>(sql2, new { username = Username }, _config.GetConnectionString("default"));
+            duplicates = false;
+        }
+
+
+
+    }
+
+    private async Task Submit()
+    {
+
+
+        string sql = "insert into images(Images_Name,Images_Username, Images_Path) values (@ImageName, @ImagesUsername, @ImagePath); ";
+        await _data.SaveData(sql, new { ImageName = imgmodel.Images_Name, ImagesUsername = Username, ImagePath = ImageView }, _config.GetConnectionString("default"));
+        UriHelper.NavigateTo("/viewimage", true);
+    }
+
+    //Delete function
+    public async Task DeleteImage()
+    {
+        foreach (var I in pictures)
+        {
+            if (imgmodel.Images_Name == I.Images_Name)
+            {
+                nameFieldNull = false;
+                string sql = "DELETE FROM images WHERE Images_Name = @imagename";
+                await _data.SaveData(sql, new { imagename = imgmodel.Images_Name }, _config.GetConnectionString("default"));
+
+                string sql2 = "select * from images WHERE Username = @username";
+                pictures = await _data.LoadData<ImagesModels, dynamic>(sql2, new { username = Username }, _config.GetConnectionString("default"));
+                noImage = false;
+                nameFieldNull = false;
+                return;
+
+            }
+            else if (imgmodel.Images_Name == null || imgmodel.Images_Name == "")
+            {
+                noImage = false;
+                nameFieldNull = true;
+                return;
+            }
+            else if (imgmodel.Images_Name != I.Images_Name)
+            {
+                nameFieldNull = false;
+                noImage= true;
+                return;
+            }
+            UriHelper.NavigateTo("/viewimage", true);
+        }
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager UriHelper { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IConfiguration _config { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDataAccess _data { get; set; }
     }
 }
 #pragma warning restore 1591
