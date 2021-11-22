@@ -126,7 +126,7 @@ using Project2Cmpg323.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 64 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Index.razor"
+#line 78 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Index.razor"
       
 
 

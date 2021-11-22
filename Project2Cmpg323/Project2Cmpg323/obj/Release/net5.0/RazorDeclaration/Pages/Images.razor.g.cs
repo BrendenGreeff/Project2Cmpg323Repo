@@ -13,106 +13,106 @@ namespace Project2Cmpg323.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
+#line 1 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
+#line 2 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
+#line 3 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
+#line 4 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
+#line 5 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
+#line 6 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
+#line 7 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
+#line 8 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
+#line 9 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
 using Project2Cmpg323;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
+#line 10 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\_Imports.razor"
 using Project2Cmpg323.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
-using Project2Cmpg323.Data;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 4 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
+#line 3 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
 using System.IO;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
+#line 4 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
 using DataLibrary;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
+#line 5 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
 using System.Text;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
+#line 6 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
 using Microsoft.Extensions.Configuration;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
+using Project2Cmpg323.Models;
 
 #line default
 #line hidden
@@ -126,41 +126,109 @@ using Microsoft.Extensions.Configuration;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 31 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\SADigitalMarketingWebbAppRepo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
-       
+#line 82 "C:\Users\brend\Downloads\UniversityFinalSem2\CMPG 323\Project2\Project2Cmpg323Repo\Project2Cmpg323Repo\Project2Cmpg323\Project2Cmpg323\Pages\Images.razor"
+      
+    string ImageUrl = "";
+    bool Uploading = false;
+    List<string> FileUrls = new List<string>();
 
-    ModelImage imgmodel = new ModelImage();
-
-    List<ModelImage> pictures;
-
-    private string UName = Login.Name;
-
+    ImagesModels imgmodel = new ImagesModels();
+    List<ImagesModels> pictures;
+    public string Username = Login.Name;
     public string Image { get; set; }
-    public string Name { get; }
+    public string Images_Name { get; }
 
-    protected override async Task OnInitializedAsync()
+    //Support for drag/drop
+
+    string dropClass = string.Empty;
+
+    void HandleDragEnter()
     {
-        string sql2 = "select * from images";
-        pictures = await _data.LoadData<ModelImage, dynamic>(sql2, new { }, _config.GetConnectionString("default"));
-
+        dropClass = "dropAreaDrug";
     }
 
-
-
-    public async Task HandleFile(InputFileChangeEventArgs e)
+    void HandleDragLeave()
     {
-        var file = e.File;
+        dropClass = string.Empty;
+    }
+
+    async Task OnInputFileChange(InputFileChangeEventArgs args)
+    {
+        dropClass = string.Empty;
+
+        try
+        {
+            //disable the upload pane
+            Uploading = true;
+            await InvokeAsync(StateHasChanged);
+
+            //Resize to no more than 400x400
+            var format = "image/png";
+            var resizeImageFile = await args.File.RequestImageFileAsync(format, 400, 400);
+
+            //Read resized file into buffer
+            var buffer = new byte[resizeImageFile.Size];
+            await resizeImageFile.OpenReadStream().ReadAsync(buffer);
+
+            //Get new filename with a bit of entropy
+            string justFileName = Path.GetFileNameWithoutExtension(args.File.Name);
+            string newFileNameWithoutPath = $"{justFileName}-{DateTime.Now.Ticks.ToString()}.png";
+            string filename = $"{Environment.CurrentDirectory}\\files\\{newFileNameWithoutPath}";
+
+            //Write the file
+            File.WriteAllBytes(filename, buffer);
+            ImageUrl = $"files/{newFileNameWithoutPath}";
+
+            await ListFiles();
+
+            //Code to convert image before upload to database
+            var file = args.File;
+
+            var buf = new byte[file.Size];
+
+            await file.OpenReadStream(1512000).ReadAsync(buffer);
+
+            Image = $"data:image/png;base64,{Convert.ToBase64String(buffer)}";
+
+        }
+        catch
+        {
+        }
+    }
+
+    private async Task HandelFileSelected(InputFileChangeEventArgs fileChangeEvent)
+    {
+        var file = fileChangeEvent.File;
 
         var buffer = new byte[file.Size];
 
         await file.OpenReadStream(1512000).ReadAsync(buffer);
 
         Image = $"data:image/png;base64,{Convert.ToBase64String(buffer)}";
-
-
-        string sql = "insert into images(Images_Name,Images_Path,Images_Username) values (@ImageName,@ImagePath,@ImageUsername); ";
-        await _data.SaveData(sql, new { ImageName = file.Name, ImagePath = imgmodel.Images_Path, ImageUsername = imgmodel.Images_Username }, _config.GetConnectionString("default"));
     }
+
+    async Task ListFiles()
+    {
+        FileUrls.Clear();
+        var files = Directory.GetFiles(Environment.CurrentDirectory + "\\Files", "*.*");
+        foreach (var filename in files)
+        {
+            var file = Path.GetFileName(filename);
+            string url = $"files/{file}";
+            FileUrls.Add(url);
+        }
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private async Task Submit()
+    {
+
+        string sql = "insert into images(Images_Name,Images_Username, Images_Path) values (@ImageName, @ImagesUsername, @ImagePath); ";
+        await _data.SaveData(sql, new { ImageName = imgmodel.Images_Name, ImagesUsername = Username, ImagePath = Image }, _config.GetConnectionString("default"));
+
+
+    }
+
 
 
 #line default

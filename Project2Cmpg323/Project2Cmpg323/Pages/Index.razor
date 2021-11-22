@@ -19,7 +19,7 @@
         align-self: auto;
     }
 
-    label {
+    .label {
         display: inline;
         width: 90px;
         text-align: center;
@@ -49,11 +49,25 @@
 <div class="div">
     <div class="background">
         <div class="m-5 rounded" style="display: contents; width: 1100px; align-content: center; align-items: center; border-left: 20px ">
+            <br />
+            <br />
             <img src="@Image" style="width: 250px; height: 250px" />
+            <br />
             <br />
             <InputFile OnChange="HandleFileSelected"></InputFile>
             <br />
+            <br />
             <button type="submit" class="btn-primary" @onclick="Submit">Upload</button>
+            <br />
+            <br />
+            <div class="label">
+                <label style="font-weight: bold; font-size:30px">Welcome to the application and thank you for signing up</label>
+                <br />
+                <label style="font-weight: bold; font-size:30px">We hope you have a fun experience</label>
+                <br />
+                <label style="font-weight: bold; font-size:30px">Enjoy the web app!</label>
+            </div>
+            <br />
         </div>
         
     </div>
